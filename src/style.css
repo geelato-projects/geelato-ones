@@ -1,0 +1,168 @@
+:root {
+    --gl_nav_main: #157cc4;
+    --gl_nav_dark-main: #9f9c9c;
+    --gl_nav_light-main: #00C5FF;
+    --gl_nav_white: #ffffff;
+    --gl_nav_black: #777c88;
+    --gl_nav_dark-black: #262626;
+    --gl_nav_light-black: #8c8c8c;
+    --gl_nav_gray: #f6f7f9;
+    --gl_nav_dark-gray: #eceef2;
+    --gl_nav_warning: #ffa941;
+    --gl_nav_success: #64d16d;
+    --gl_nav_error: #e62412;
+    --gl_nav_dark-layer: linear-gradient(to right, rgba(38, 38, 38, 0.2), rgba(38, 38, 38, 0.2));
+    --gl_nav_light-layer: linear-gradient(to right, rgba(38, 38, 38, 0.5), rgba(38, 38, 38, 0.5));
+    --gl_nav_bar-width: 80px;
+
+    /*font-family: Inter, Avenir, Helvetica, Arial, sans-serif;*/
+    /*font-size: 16px;*/
+    /*line-height: 24px;*/
+    /*font-weight: 400;*/
+
+    /*color: #0f0f0f;*/
+    /*background-color: #f6f6f6;*/
+
+    /*font-synthesis: none;*/
+    /*text-rendering: optimizeLegibility;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+    /*-webkit-text-size-adjust: 100%;*/
+}
+
+body {
+    /*background-color: var(--gl_nav_gray);*/
+}
+
+/* 滚动条整体背景颜色 */
+::-webkit-scrollbar{
+    width: 6px;
+    background-color: rgb(238, 238, 238);
+}
+/* 滑块颜色 */
+::-webkit-scrollbar-thumb {
+    background-color: #b4b4b4;
+}
+
+/**
+ * 工具样式
+ */
+.gl-hidden {
+    /*默认时不可见，可配合:hover实现可见*/
+    display: none;
+}
+
+.gl-extra:hover .gl-hidden.gl-hover-as-block {
+    display: block;
+}
+
+.gl-extra:hover .gl-hidden.gl-hover-as-inline-block {
+    display: inline-block;
+}
+
+
+.gl-circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid #7a7a7a;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.gl-circle:hover {
+    border: 2px solid #41a4fc;
+}
+
+.gl-circle-checked {
+    color: #41a4fc;
+}
+
+/*********************************
+ *  gl-list
+ *********************************/
+.gl-list > .gl-title,.gl-list > div > span.gl-title ,.daylyLog > div >.gl-title {
+    font-weight: 600;
+    padding: 1.2em 0;
+}
+
+.gl-list > .gl-items > .gl-item {
+    /*border-bottom: 1px solid #d2d2d2;*/
+    background-color: white;
+    border-radius: 8px;
+    clear: right;
+    padding: 0 8px 4px 8px;
+    margin-bottom: 2px;
+    word-break: break-all;
+
+    display: flex;
+}
+
+.gl-list > .gl-items > .gl-item:hover, .gl-list > .gl-items > .gl-item.gl-selected {
+    background-color: var(--gl_nav_gray);
+    /*border-left: 2px solid #0467c2;*/
+}
+
+.gl-list > .gl-items > .gl-item > div {
+    padding: 0.6em;
+}
+
+
+.gl-list > .gl-items > .gl-item:hover .gl-hidden {
+    display: inline-block;
+}
+
+/*.gl-list > .gl-items > .gl-item >.gl-title{*/
+/*    overflow-x: auto;*/
+/*}*/
+
+.gl-list > .gl-items > .gl-item > .gl-extra {
+    margin-left: auto;
+}
+
+.gl-list > .gl-items > .gl-item > .gl-extra > * {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.gl-list > .gl-items > .gl-item > .gl-extra > *:not(.gl-ignore-hidden) {
+    display: none;
+}
+
+.gl-list > .gl-items > .gl-item:hover > .gl-extra > * {
+    display: inline-block;
+}
+
+.gl-list > .gl-items > .gl-item:hover > .gl-extra > .gl-extra-delete {
+    display: inline-block;
+}
+
+
+.gl-href {
+    cursor: pointer;
+}
+
+/*********************************
+ *  a-modal 扩展全屏样式
+ *********************************/
+.gl-full-modal .ant-modal {
+    max-width: 100%;
+    top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.gl-full-modal .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh);
+
+}
+
+.gl-full-modal .ant-modal-body {
+    flex: 1;
+    overflow: auto;
+}
