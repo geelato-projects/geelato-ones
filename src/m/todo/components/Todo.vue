@@ -122,7 +122,8 @@ onUpdated(() => {
 <template>
   <div class="gl-todo">
     <TodoList class="gl-todo-list"></TodoList>
-    <div class="gl-todo-tasks gl-list" v-if="todoStore.currentList.title" :style="{height:$attrs.height+'px'}" style="padding-right: 0.5em">
+    <div class="gl-todo-tasks gl-list" v-if="todoStore.currentList.title" :style="{height:$attrs.height+'px'}"
+         style="padding-right: 0.5em">
       <template v-if="todoStore.currentListType===todoStore.ListTypes.DAYLYLOG">
         <DaylyLog></DaylyLog>
       </template>
@@ -175,11 +176,11 @@ onUpdated(() => {
             <!-- 标星收藏 -->
             <span>
                 <span v-if="!extraProps.item.star" class="gl-hidden gl-hover-as-inline-block gl-ignore-hidden"
-                      @click="addTaskToStarList(extraProps.item)">
+                      @click="addTaskToStarList(extraProps.item)" title="加入收藏事项">
                 <StarOutlined/>
               </span>
                <span v-if="extraProps.item.star" @click="removeTaskFromStarList(extraProps.item)" style="color:#ffba28"
-                     class="gl-ignore-hidden">
+                     class="gl-ignore-hidden" title="从收藏事项移除">
                 <StarFilled/>
               </span>
             </span>
@@ -196,12 +197,27 @@ onUpdated(() => {
             <span>{{ titleProps.item.title }}</span>
           </template>
           <template #extra="extraProps">
-          <span v-if="!extraProps.item.star" class="gl-hidden gl-hover-as-inline-block"
-                @click="addTaskToStarList(extraProps.item)">
-              <StarOutlined/>
+            <!-- 标为今天跟进 -->
+            <span>
+                <span v-if="!extraProps.item.today" class="gl-hidden gl-hover-as-inline-block gl-ignore-hidden"
+                      @click="addTaskToTodayList(extraProps.item)" title="加入今天事项">
+                <FieldTimeOutlined/>
+              </span>
+               <span v-if="extraProps.item.today" @click="removeTaskFromTodayList(extraProps.item)"
+                     style="color:#ffba28"
+                     class="gl-ignore-hidden" title="从今天事项移除">
+                <FieldTimeOutlined/>
+              </span>
             </span>
-            <span v-if="extraProps.item.star" @click="removeTaskFromStarList(extraProps.item)" style="color:#ffba28">
-              <StarFilled/>
+            <!-- 标星收藏 -->
+            <span>
+               <span v-if="!extraProps.item.star" class="gl-hidden gl-hover-as-inline-block"
+                     @click="addTaskToStarList(extraProps.item)" title="加入收藏事项">
+              <StarOutlined/>
+              </span>
+              <span v-if="extraProps.item.star" @click="removeTaskFromStarList(extraProps.item)" style="color:#ffba28" title="从收藏事项移除">
+                <StarFilled/>
+              </span>
             </span>
           </template>
         </GlList>

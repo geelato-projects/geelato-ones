@@ -20,7 +20,7 @@ const todoStore = useTodoStore()
 const todayRecordEditor = ref()
 const todayRecordEditorStyle = ref({'min-height': '6em', 'height': '400px', 'max-height': '100%', 'overflow-y': 'auto'})
 
-const onSelectDay = async (item: object) => {
+const onSelectDay = async (item: any) => {
   await todoStore.loadDaylyLog(item.dayStr)
   // console.log('onSelectDay > setHtml:',todoStore.currentDaylyLog.content)
   todayRecordEditor.value.setHtml(todoStore.currentDaylyLog.content)
@@ -36,7 +36,8 @@ const onSelectDay = async (item: object) => {
 <!--          <EditOutlined/>--> |
         </template>
         <template #title="titleProps">
-          <span >{{ titleProps.item.dayStr }}</span>
+<!-- TODO    error TS2571: Object is of type 'unknown'.     -->
+<!--          <span >{{ titleProps.item.dayStr }}</span>-->
         </template>
         <template #extra="extraProps">
         </template>
