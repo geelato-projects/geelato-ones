@@ -5,4 +5,4 @@ yarn install
 ## 开发
 yarn dev
 ## 构建
-tauri builnd
+tauri build
