@@ -4,7 +4,7 @@ export const LayoutStore = defineStore('LayoutStore', {
     state: () => ({
         winHeight: 0,
         winWidth: 0,
-        sidebarLeftPanelWidth: 76,
+        sidebarLeftPanelWidth: 100,
         sidebarRightPanelWidth: 0,
         stageBannerPanelHeight: 0,
         setterPanelWidth: 0
